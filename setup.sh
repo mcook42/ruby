@@ -1,25 +1,27 @@
 #!/urs/bin/env bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
+# install homebrew to make life easier (bonus: it's written in ruby)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update
+brew install rbenv
+brew install ruby-build
+
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/matt/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/matt/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+brew install gcc
+
 # https://github.com/rbenv/ruby-build/wiki#ubuntudebianmint
 apt-get install autoconf bison patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
 
-# install watchman to support Sorbet for Ruby. Use git repo to use the most stable version -- Ubuntu's version is insecure as of writing this script
-# The installation directions provided by facebook for ubuntu did not work for my WSL2 installation, so I chose to use the build-from-source
-# approach to avoid getting sidetracked while trying to learn Ruby
-git clone https://github.com/facebook/watchman.git --depth 1 ~/repos/watchman
-(
-    cd ~/repos/watchman
-    sudo apt-get install -y automake python2-dev
-    ./autogen.sh
-    ./configure --enable-lenient
-    make
-    sudo make install
-)
+# START - only needed for VSCode
+brew install watchman
 
 watchman --version
 
 bundle install
 # to setup Sorbet for Ruby + VSCode
 bundle exec tapicoa init
+
+# END - only need for VSCode
