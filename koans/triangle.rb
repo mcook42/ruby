@@ -14,6 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+
+  sides = [a, b, c]
+  raise TriangleError if sides.min <= 0 # we can't have a triangle with a side with a non-positive length
+
+  short, medium, long = sides.sort
+  raise TriangleError if short + medium <= long
+
   if a == b && b == c
     return :equilateral
   end
