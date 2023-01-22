@@ -41,6 +41,7 @@ application up and running.
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Puma       | A web server distributed with Rails by default. [Documentation](https://github.com/puma/puma)                                                                                |
 | SQLite3    | A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL Database engine. [Documentation](https://www.sqlite.org/index.html) |
+| Turbo      | Bundles several techniques for creating fast, modern, progressively enhanced web apps without much JavaScript. [Documentation](https://turbo.hotwired.dev/)                  |
 
 
 ### Notes
