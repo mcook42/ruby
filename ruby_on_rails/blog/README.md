@@ -11,6 +11,10 @@ application up and running.
 
 `bin/rails server` will start up the server and serve traffic on http://localhost:3000
 
+## Helpful scripts
+
+- `bin/rails generate controller [DOMAIN NAME like Articles] [ACTION NAME]` will create a controller and route for the action provided
+
 ## Structure
 
 | File/Folder  | Purpose                                                                                                                                                                        |
@@ -36,3 +40,10 @@ application up and running.
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Puma       | A web server distributed with Rails by default. [Documentation](https://github.com/puma/puma)                                                                                |
 | SQLite3    | A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL Database engine. [Documentation](https://www.sqlite.org/index.html) |
+
+
+### Notes
+
+- Rails applications do not use require to load application code. DO NOT use `require`. App classes and modules are available everywhere,
+you do not need to and should not load anything under `app/` with `require`.  This feature is called [_autoloading_](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html)
+- The only times to use `require` are 1) to load files under the `lib/` directory and 2) to load gem dependencies that have `require: false` in the `Gemfile`
