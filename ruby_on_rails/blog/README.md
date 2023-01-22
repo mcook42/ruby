@@ -50,3 +50,9 @@ you do not need to and should not load anything under `app/` with `require`.  Th
 - The only times to use `require` are 1) to load files under the `lib/` directory and 2) to load gem dependencies that have `require: false` in the `Gemfile`
 - In ERB, a templating system that evluates Ruby code embedded in a document, there are two similar types of ERB tags: `<% %>`
 which means "evaluate the enclosed Ruby code" and `<%= %>` which means "evaluate the enclosed Ruby code and output the value it returns"
+- actions in a controller are, by default, to a view like `app/views/[model name]/[action].html.erb`.
+- redirect_to will cause the browser to make a new request, whereas render renders the specified view for the current request. 
+It is important to use redirect_to after mutating the database or application state. Otherwise, if the user refreshes the page, 
+the browser will make the same request, and the mutation will be repeated.
+- See the [Articles New view](./app/views/articles/new.html.erb) for an example of using the form builder.
+- Active Record automatically defines model attributes for every table column, so you don't have to declare those attributes in your model file.
