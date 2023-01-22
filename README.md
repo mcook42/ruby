@@ -11,6 +11,12 @@ run `. setup.sh` in the root directory to install the necessary software
 - VSCode (for code editing)
 - rbenv (for version management)
 
+## Structure
+
+- `koans/` contains koans (practice problems with incomplete information) to learn fundamentals of ruby - paused in favor of ruby on rails project
+- `ruby_on_rails/` contains hands-on project for learning Ruby on Rails - in progress
+
 ## Resources
 
 - [Ruby Koans](https://www.rubykoans.com)
+- [Getting Started - Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
