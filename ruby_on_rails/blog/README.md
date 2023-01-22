@@ -14,6 +14,7 @@ application up and running.
 ## Helpful scripts
 
 - `bin/rails generate controller [DOMAIN NAME like Articles] [ACTION NAME]` will create a controller and route for the action provided
+- `bin/rails generate model Article title:string body:text` will create resources to support an Article model
 
 ## Structure
 
@@ -47,3 +48,5 @@ application up and running.
 - Rails applications do not use require to load application code. DO NOT use `require`. App classes and modules are available everywhere,
 you do not need to and should not load anything under `app/` with `require`.  This feature is called [_autoloading_](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html)
 - The only times to use `require` are 1) to load files under the `lib/` directory and 2) to load gem dependencies that have `require: false` in the `Gemfile`
+- In ERB, a templating system that evluates Ruby code embedded in a document, there are two similar types of ERB tags: `<% %>`
+which means "evaluate the enclosed Ruby code" and `<%= %>` which means "evaluate the enclosed Ruby code and output the value it returns"
